@@ -1,0 +1,21 @@
+{
+    "KPackageStructure": "Plasma/Applet",
+    "KPlugin": {
+        "Authors": [
+            {
+                "Name": "mossware"
+            }
+        ],
+        "Category": "Utilities",
+        "Description": "A widget to display the air raid alert status.",
+        "Icon": "/.local/share/plasma/plasmoids/mossware.airraidalert/contents/images/alien.png",
+        "Id": "mossware.airraidalert",
+        "Name": "Air Raid Alert",
+        "ServiceTypes": [
+            "Plasma/Applet"
+        ],
+        "Version": "1.0"
+    },
+    "X-Plasma-API-Minimum-Version": "6.0",
+    "X-Plasma-MainScript": "ui/main.qml"
+}
