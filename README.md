@@ -21,7 +21,7 @@ A compact KDE Plasma 6 widget to display **air raid alerts** for Kyiv in real ti
 
 ---
 
-##🛠️ Setup
+## 🛠️ Setup
 
 1. Clone this repository:
 
