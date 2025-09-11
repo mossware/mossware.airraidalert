@@ -21,18 +21,33 @@ A compact KDE Plasma 6 widget to display **air raid alerts** for Kyiv in real ti
 
 ---
 
-## 🛠️ Setup
+##🛠️ Setup
 
 1. Clone this repository:
 
 ```bash
-git clone https://github.com/<your-username>/mossware.airraidalert.git
+git clone https://github.com/mossware/mossware.airraidalert.git
 ```
-2. Copy the folder to your Plasma plasmoids directory (if not already there):
-   
+
+
+2. Install the widget using Plasma 6’s packaging tool:
+
 ```bash
-cp -r mossware.airraidalert ~/.local/share/plasma/plasmoids/
+kpackagetool6 -i mossware.airraidalert
 ```
+
+To update later:
+
+```bash
+kpackagetool6 -u mossware.airraidalert
+```
+
+To remove:
+
+```bash
+packagetool6 -r mossware.airraidalert
+```
+
 3. Open KDE Add Widgets, search for Air Raid Alert, and add it to your desktop or panel.
 
 ## 🔧 Configuration
