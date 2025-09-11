@@ -101,20 +101,25 @@ PlasmoidItem {
         onClicked: currentLang = currentLang === "uk" ? "en" : "uk"
     }
 
+    // Polling timer (every 30 seconds)
+    Timer {
+        id: apiTimer
+        interval: 30000
+        running: true
+        repeat: true
+        onTriggered: fetchAlertStatus()
+    }
+
     function fetchAlertStatus() {
         var xhr = new XMLHttpRequest()
         xhr.open("GET", "https://api.alerts.in.ua/v1/iot/active_air_raid_alerts/" + locationUID + ".json")
-        xhr.setRequestHeader("Authorization", "Bearer <YOUR TOKEN HERE>")
+        xhr.setRequestHeader("Authorization", "Bearer YOUR TOKEN HERE")
         xhr.onreadystatechange = function() {
             if (xhr.readyState === XMLHttpRequest.DONE) {
                 if (xhr.status === 200) {
                     tokenValid = true
                     var resp = xhr.responseText.trim().replace(/"/g,"") // raw "A"/"N"/"P"
-                    if (resp === "A") {
-                        alertActive = true
-                    } else {
-                        alertActive = false
-                    }
+                    alertActive = (resp === "A")
                 } else {
                     tokenValid = false
                     console.log("API token invalid or fetch failed: " + xhr.status)
@@ -125,6 +130,6 @@ PlasmoidItem {
     }
 
     Component.onCompleted: {
-        fetchAlertStatus() // initial fetch on startup
+        fetchAlertStatus() // initial fetch
     }
 }
